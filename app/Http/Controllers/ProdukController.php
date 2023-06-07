@@ -78,7 +78,11 @@ class ProdukController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pageTitle = 'Detail Product';
+
+        $produk = Produk::find($id);
+
+        return view('produk.show', compact('pageTitle', 'produk'));
     }
 
     /**
@@ -132,6 +136,9 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // ELOQUENT
+        Produk::find($id)->delete();
+
+        return redirect()->route('produk.index');
     }
 }
