@@ -103,7 +103,30 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $messages = [
+            'required' => ':Attribute harus diisi.',
+            'numeric' => 'Isi :attribute dengan angka',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'kodebarang' => 'required',
+            'namabarang' => 'required',
+            'hargabarang' => 'required|numeric',
+            'deskripsibarang' => 'required',
+
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $update = produk::find($id);
+        $update->kodebarang = $request->kodebarang;
+        $update->namabarang = $request->namabarang;
+        $update->hargabarang = $request->hargabarang;
+        $update->deskripsibarang = $request->deskripsibarang;
+        $update->satuan_id = $request->satuan;
+        $update->save();
+        return redirect()->route('produk.index');
     }
 
     /**
