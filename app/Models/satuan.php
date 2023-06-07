@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class satuan extends Model
+class Satuan extends Model
 {
     use HasFactory;
-    public function produks(){
-        return $this->hasMany(produk::class);
-    }
 }
