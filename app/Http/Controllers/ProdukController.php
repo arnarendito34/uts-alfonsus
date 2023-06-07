@@ -54,10 +54,10 @@ class ProdukController extends Controller
             ];
 
             $validator = Validator::make($request->all(), [
-                'kodeBarang' => 'required',
-                'namaBarang' => 'required',
-                'hargaBarang' => 'required|numeric',
-                'deskripsiBarang' => 'required',
+                'kodebarang' => 'required|numeric',
+                'namabarang' => 'required',
+                'hargabarang' => 'required|numeric',
+                'deskripsibarang' => 'required',
 
             ], $messages);
 

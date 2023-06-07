@@ -38,9 +38,9 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="kodeBarang" class="form-label">Kode Barang</label>
-                            <input class="form-control @error('kodeBarang') is-invalid @enderror" type="text" name="kodebarang" id="kodebarang" value="{{ old('kodebarang') }}" placeholder="Kode Barang">
-                                @error('kodeBarang')
+                            <label for="kodebarang" class="form-label">Kode Barang</label>
+                            <input class="form-control @error('kodebarang') is-invalid @enderror" type="text" name="kodebarang" id="kodebarang" value="{{ old('kodebarang') }}" placeholder="Kode Barang">
+                                @error('kodebarang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
