@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\produk;
 use App\Models\Satuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -87,7 +88,14 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pageTitle = 'edit barang';
+        $produk = produk::find($id);
+        $satuan = Satuan::all();
+        return view('produk.edit',[
+            'pagetitle' => $pageTitle,
+            'produks' => $produk,
+            'satuans' => $satuan
+        ]);
     }
 
     /**
