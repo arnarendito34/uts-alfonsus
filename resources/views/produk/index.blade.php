@@ -21,7 +21,7 @@
 
                 <ul class="navbar-nav flex-row flex-wrap">
                     <li class="nav-item col-2 col-md-auto"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                    <li class="nav-item col-2 col-md-auto"><a href="{{ route('produk.index') }}" class="nav-link active">Employee List</a></li>
+                    <li class="nav-item col-2 col-md-auto"><a href="{{ route('produk.index') }}" class="nav-link active">Product List</a></li>
                 </ul>
 
                 <hr class="d-lg-none text-white-50">
@@ -46,7 +46,7 @@
                         <th>Nama Barang</th>
                         <th>Harga Barang</th>
                         <th>Deskripsi Barang</th>
-                        <th>Satuan Barang</th>
+                        <th>Kategori Barang</th>
                     </tr>
                 </thead>
                 <tbody>

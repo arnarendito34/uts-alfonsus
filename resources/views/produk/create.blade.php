@@ -66,7 +66,7 @@
                             @enderror
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label for="satuan" class="form-label">Satuan Barang</label>
+                            <label for="satuan" class="form-label">Kategori Barang</label>
                             <select name="satuan" id="satuan" class="form-select">
                                 @foreach ($satuans as $satuan)
                                     <option value="{{ $satuan->id }}" {{ old('satuan') == $satuan->id ? 'selected' : '' }}>{{ $satuan->kodeSatuan}}</option>
