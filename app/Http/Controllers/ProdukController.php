@@ -48,32 +48,30 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-            $messages = [
-                'required' => ':Attribute harus diisi.',
-                'numeric' => 'Isi :attribute dengan angka',
-            ];
+        $messages = [
+            'required' => ':Attribute harus diisi.',
+            'numeric' => 'Isi :attribute dengan angka',
+        ];
 
-            $validator = Validator::make($request->all(), [
-                'kodebarang' => 'required|numeric',
-                'namabarang' => 'required',
-                'hargabarang' => 'required|numeric',
-                'deskripsibarang' => 'required',
+        $validator = Validator::make($request->all(), [
+            'kodebarang' => 'required',
+            'namabarang' => 'required',
+            'hargabarang' => 'required|numeric',
+            'deskripsibarang' => 'required',
 
-            ], $messages);
+        ], $messages);
 
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator)->withInput();
-            }
-
-            DB::table('produks')->insert([
-                'kodebarang' => $request->kodebarang,
-                'namabarang' => $request->namabarang,
-                'hargabarang' => $request->hargabarang,
-                'deskripsibarang' => $request->deskripsibarang,
-                'satuan_id' => $request->satuan_id,
-            ]);
-
-            return redirect()->route('produk.index');
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $update = NEW produk;
+        $update->kodebarang = $request->kodebarang;
+        $update->namabarang = $request->namabarang;
+        $update->hargabarang = $request->hargabarang;
+        $update->deskripsibarang = $request->deskripsibarang;
+        $update->satuan_id = $request->satuan;
+        $update->save();
+        return redirect()->route('produk.index');
     }
     /**
      * Display the specified resource.

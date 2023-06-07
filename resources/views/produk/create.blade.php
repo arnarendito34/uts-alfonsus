@@ -38,29 +38,29 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="kodebarang" class="form-label">Kode Barang</label>
-                            <input class="form-control @error('kodebarang') is-invalid @enderror" type="text" name="kodebarang" id="kodebarang" value="{{ old('kodebarang') }}" placeholder="Kode Barang">
-                                @error('kodebarang')
+                            <label for="kodeBarang" class="form-label">Kode Barang</label>
+                            <input class="form-control @error('kodeBarang') is-invalid @enderror" type="text" name="kodebarang" id="kodebarang" value="{{ old('kodebarang') }}" placeholder="Kode Barang">
+                                @error('kodeBarang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="namaBarang" class="form-label">Nama Barang</label>
-                            <input class="form-control @error('namaBarang') is-invalid @enderror" type="text" name="namaBarang" id="namaBarang" value="{{ old('namaBarang') }}" placeholder="Nama Barang">
+                            <input class="form-control @error('namaBarang') is-invalid @enderror" type="text" name="namabarang" id="namabarang" value="{{ old('namaBarang') }}" placeholder="Nama Barang">
                                 @error('namaBarang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="hargaBarang" class="form-label">Harga Barang</label>
-                            <input class="form-control @error('hargaBarang') is-invalid @enderror" type="text" name="hargaBarang" id="hargaBarang" value="{{ old('hargaBarang') }}" placeholder="Harga (Rp)">
+                            <input class="form-control @error('hargaBarang') is-invalid @enderror" type="text" name="hargabarang" id="hargabarang" value="{{ old('hargaBarang') }}" placeholder="Harga (Rp)">
                                 @error('hargaBarang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
                         <div class="col-md-12 mb-3">
                         <label for="deskripsiBarang" class="form-label">Deskripsi Barang</label>
-                        <textarea class="form-control @error('deskripsiBarang') is-invalid @enderror" id="deskripsiBarang" rows="3" name="deskripsiBarang" value="{{ old('deskripsiBarang') }}" placeholder="Isi Deskripsi barang"></textarea>
+                        <textarea class="form-control @error('deskripsiBarang') is-invalid @enderror" id="deskripsibarang" rows="3" name="deskripsibarang" value="{{ old('deskripsiBarang') }}" placeholder="Isi Deskripsi barang"></textarea>
                             @error('deskripsiBarang')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
@@ -69,7 +69,7 @@
                             <label for="satuan" class="form-label">Satuan Barang</label>
                             <select name="satuan" id="satuan" class="form-select">
                                 @foreach ($satuans as $satuan)
-                                    <option value="{{ $satuan->id }}" {{ old('satuan') == $satuan->id ? 'selected' : '' }}>{{ $satuan->kodeSatuan.' - '.$satuan->namaSatuan }}</option>
+                                    <option value="{{ $satuan->id }}" {{ old('satuan') == $satuan->id ? 'selected' : '' }}>{{ $satuan->kodeSatuan}}</option>
                                 @endforeach
                             </select>
                             @error('satuan')
