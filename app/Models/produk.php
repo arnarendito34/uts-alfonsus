@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     use HasFactory;
+
+    public function satuan()
+    {
+        return $this->belongsTo(Satuan::class);
+    }
 }

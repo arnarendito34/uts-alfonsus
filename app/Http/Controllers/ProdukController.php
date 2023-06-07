@@ -15,12 +15,8 @@ class ProdukController extends Controller
     {
         $pageTitle = 'Product List';
 
-        // RAW SQL QUERY
-        $produks = DB::select('
-            select *, produks.id as produks_id
-            from produks
-            left join satuans on produks.satuan_id = satuans.id
-        ');
+        // ELOQUENT
+    $produks = produk::all();
 
         return view('produk.index', [
             'pageTitle' => $pageTitle,
@@ -34,11 +30,7 @@ class ProdukController extends Controller
     public function create()
     {
         $pageTitle = 'Create Product';
-        //RAW SQL QUERY
-        $testing = DB::select('select * from produks');
-        $satuans = DB::table('satuans')
-                    ->select('*')
-                    ->get();
+        $satuans = Satuan::all();
 
         return view('produk.create', compact('pageTitle','satuans'));
     }
@@ -80,7 +72,7 @@ class ProdukController extends Controller
     {
         $pageTitle = 'Detail Product';
 
-        $produk = Produk::find($id);
+        $produk = produk::find($id);
 
         return view('produk.show', compact('pageTitle', 'produk'));
     }
@@ -137,7 +129,7 @@ class ProdukController extends Controller
     public function destroy(string $id)
     {
         // ELOQUENT
-        Produk::find($id)->delete();
+        produk::find($id)->delete();
 
         return redirect()->route('produk.index');
     }

@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="satuan_id" class="form-label">Kategori</label>
-                        <h5>{{ $produk->satuan_id }}</h5>
+                        <h5>{{ $produk->satuan->namaSatuan }}</h5>
                     </div>
                 </div>
                 <hr>
